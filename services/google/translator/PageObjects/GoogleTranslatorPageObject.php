@@ -6,13 +6,24 @@ use lib\ServicePageObject;
 
 class GoogleTranslatorPageObject extends ServicePageObject
 {
-  
-  public function selectLanguageFrom()
+  public function selectLanguageFrom($language)
   {
+    $this->selectFromDropDownMenu(
+      WebDriverBy::id("gt-sl-gms"),
+      WebDriverBy::xpathSelector(
+        "//div[@id='gt-sl-gms-menu']//div[@class='goog-menuitem-content' and contains(text(), '".$language."')]"
+      )
+    );
   }
   
   public function selectLanguageTo()
   {
+    $this->selectFromDropDownMenu(
+      WebDriverBy::id("gt-tl-gms"),
+      WebDriverBy::xpathSelector(
+        "//div[@id='gt-tl-gms-menu']//div[@class='goog-menuitem-content' and contains(text(), '".$language."')]"
+      )
+    );
   }
   
   public function clickTranslateButton()
@@ -34,5 +45,16 @@ class GoogleTranslatorPageObject extends ServicePageObject
   
   public function clearTranslateFromTextarea()
   {
+  }
+  
+  protected function selectFromDropDownMenu($menuSelector, $elementSelector)
+  {
+    $this->webdriver
+      ->findElement($menuSelector)
+      ->click();
+    
+    $this->webdriver
+      ->findElement($elementSelector))
+      ->click();
   }
 }
