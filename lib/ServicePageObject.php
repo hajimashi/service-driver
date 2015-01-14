@@ -2,12 +2,12 @@
 
 namespace lib\ServicePageObject;
 
-class ServicePageObject
+abstract class ServicePageObject
 {
   protected $webdriver;
   protected $url;
   
-  public function __construct($webdriver, $url)
+  public function __construct($webdriver)
   {
     $this->webdriver = $webdriver;
     $this->url = $url;
