@@ -4,5 +4,10 @@ namespace lib\ServicePageObject;
 
 class ServicePageObject
 {
-  var $webdriver;
+  protected $webdriver;
+  
+  public function __construct($webdriver)
+  {
+    $this->webdriver = $webdriver;
+  }
 }
