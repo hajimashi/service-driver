@@ -1,12 +1,14 @@
 <?php
 
+namespace services\google\translator\PageObjects;
 
-class GoogleTranslatorPageObject
+use lib\ServicePageObject;
+
+class GoogleTranslatorPageObject extends ServicePageObject
 {
   
   public function selectLanguageFrom
   {
-  
   }
   
   public function selectLanguageTo
