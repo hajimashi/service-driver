@@ -7,27 +7,32 @@ use lib\ServicePageObject;
 class GoogleTranslatorPageObject extends ServicePageObject
 {
   
-  public function selectLanguageFrom
+  public function selectLanguageFrom()
   {
   }
   
-  public function selectLanguageTo
+  public function selectLanguageTo()
   {
   }
   
-  public function clickTranslateButton
+  public function clickTranslateButton()
+  {
+    $this->webdriver
+      ->findElement(WebDriverBy::id("gt-submit"))
+      ->click();
+      
+    return $this;
+  }
+  
+  public function getTranslation()
   {
   }
   
-  public function getTranslation
+  public function clickSwitchLanguageButton()
   {
   }
   
-  public function clickSwitchLanguageButton
-  {
-  }
-  
-  public function clearTranslateFromTextarea
+  public function clearTranslateFromTextarea()
   {
   }
 }
